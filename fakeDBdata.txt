@@ -1,0 +1,8 @@
+TABLE_NAME: Example
+NAME | AGE | ELEMENT |
+Aang | 12 | Air |
+Katara | 14 | Water |
+Sakka | 15 | Boomerang |
+Toph | 12 | Earth |
+Zuko | 16 | Fire |
+
