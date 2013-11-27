@@ -123,15 +123,13 @@ DB     |   ``` printTable(table_name)```    |  table_name = *STRING, the name of
 DB     |   ``` makeTable(table_name, colist)```    |  table_name = *STRING, the name of the new table*;  colist = *LIST, the list of columns to be in the table* | Prints out all the information in the table row by row  |
 DB     |   ``` deleteTable(table_name)```    |  table_name = *STRING of the name of the table to delete* | Deletes a table from the database  |
 Table     |   ``` newCol(col_name) ```    |  col_name = *STRING with the name of the new column* | Makes a new column in the specified table  |
-Table     |   ``` removeCol(col_name) ```    |  col_name = *STRING with the name of the column to delete* |  Removes a column from the table, including every element which
-is in that column for all respective rows  |
-
-
-
-
-
-
-
-
-
+Table     |   ``` removeCol(col_name) ```    |  col_name = *STRING with the name of the column to delete* |  Removes a column from the table, including every element which is in that column for all respective rows  |
+Table     |   ``` printCols() ```    |  (none) |  Prints out a LIST of all the columns in a table  |
+Table     |   ``` gettCols() ```    |  (none) |  Returns a LIST of all the columns in a table  |
+Table     |   ``` newRow(row_data) ```    |  row_data = *DICTIONARY with all the data to make a row* |  Makes a new row in the specified table;  IF there is no value corresponding to a column, it will be skipped; IF a key in row_data is not a column in the table, it will be skipped  |
+Table     |   ``` deleteRow(key, value) ```    |   key = *STRING with the column name*; value = *STRING with the row's data corresponsing to the key* |  Removes the first row from a table that contains the key and value pair  |
+Table     |   ``` getRow(key, value) ```    |   key = *STRING with the column name*; value = *STRING with the row's data corresponsing to the key* |  Gets a row with the specified key and value pair  |
+Table     |   ``` printRows() ```    |  (none) |  Prints all the rows in the table  |
+Row     |   ``` printRow() ```    |  (none) |  Prints the specified row  |
+Row     |   ``` update(key, value) ```    |  key = *STRING with the column name*; value = *STRING with the row's data corresponsing to the key* |  Updates the data in a row corresponding to the specified column  |
 [documentation table]
