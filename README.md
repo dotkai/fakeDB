@@ -37,10 +37,10 @@ Spaces are acceptable and capitalization does not matter. However I prefer to wr
 *Note: There are no auto generated ids. If you want them, make a custom column for it.*
 
 
-Making and using the Database
+Opening and Saving the Database
 -----------
 
-**To make a new Database:**
+**To MAKE a new Database, or retrieve an existing:**
 ```python
 myDB = fakeDB.DB()
 ```
@@ -52,7 +52,7 @@ There is also the option to make a database with a custom file.
 myDB = fakeDB.DB("myCustomFile.txt")
 ```
 
-**To save the Database:**
+**To SAVE the Database:**
 
 To save the database to the dafault file ("fakeDBdata.txt"), then use.
 ```python
@@ -66,9 +66,72 @@ myDB.save("myCustomFile.txt")
 
 ***FYI, you MUST *.save() your database when you are done processing it, otherwise it will not write to the file and you will loose all your changes.***
 
+Making a Table
+-----------
+**To MAKE a new Table**
+
+```python
+myTable = fakeDB.Table("myTableName")
+```
+
+This will have no columns or rows. As a minimum, you must speficy the table's name.
+
+**To make a table with specified columns**
+
+```python
+myTable = fakeDB.Table("myTableName", [ "COL-1", "COL-2", ...])
+```
+
+This will create a table with the specified columns. Column names are stored as string in an array/list. You will not be able to add rows unless there are corresponding columns.
+
+**To make a table with predetermined rows and columns**
+
+```python
+myTable = fakeDB.Table("myTableName", [ "COL-1", "COL-2", ...], [ RowObject, RowObject, ...])
+```
+
+This will create a table with all specified columns and rows. Please note that the rows are Row objects. Do not pass in any other data type. If you wish to make a new row, keep reading.
+
+Once again, as a reminder, this database does not make unique ids for each row. Instead, each row corresponds to the location in the table's row array/list. The first row added will have an index of 0, the next an index of 1, etc.
+
+
+Making a Row
+-----------
+
+**To MAKE a new row**
+```python
+aRow = fakeDB.Row()
+```
+
+This will create a new empty row. When put into a table, it will adapt the columns, however all elements corresponding to the columns will be empty strings.
+
+**To MAKE a row with existing data**
+```python
+rowData = {"COL-1": "myName", "COL-2": "20", ...}
+aRow = fakeDB.Row(rowData)
+```
+
+Pass a dictionary with the keys corresponding to the columns of a table, and their respective values. Note, that is one of the keys does not correspond to a value in the table, it will be ignored. All unspecified keys will obtain empty values.
+
+Documentation
+-----------
+
 Class | Function | Parameters | Description/Use |
- ------------ | :-----------: | :-----------: | -----------: |
-DB     |   Cell Bold    |         Cell |
-New section   |     More      |         Data |
-And more      |            And more          |
+ ------------ | :-----------: | ----------- | ----------- |
+DB     |   ``` getTable(table_name)```    |  table_name = *STRING, the name of a table* | Gets the specified table from a database; *RETURNS DICTIONARY*  |
+DB     |   ``` printTable(table_name)```    |  table_name = *STRING, the name of a table* | Prints out all the information in the table row by row  |
+DB     |   ``` makeTable(table_name, colist)```    |  table_name = *STRING, the name of the new table*;  colist = *LIST, the list of columns to be in the table* | Prints out all the information in the table row by row  |
+DB     |   ``` deleteTable(table_name)```    |  table_name = *STRING of the name of the table to delete* | Deletes a table from the database  |
+Table     |   ``` newCol(col_name) ```    |  col_name = *STRING with the name of the new column* | Makes a new column in the specified table  |
+Table     |   ``` removeCol(col_name) ```    |  col_name = *STRING with the name of the column to delete* |  Removes a column from the table, including every element which
+is in that column for all respective rows  |
+
+
+
+
+
+
+
+
+
 [documentation table]
